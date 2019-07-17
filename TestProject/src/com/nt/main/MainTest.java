@@ -6,6 +6,7 @@ public class MainTest {
 		System.out.println("WW my name is khan IT IS FDF DEVELOPER 1 IT MAY  BE CONGLICT");
 		System.out.println("dev1 is commiting code-----");
 		System.out.println("dev1 changed something");
+		System.out.println("dev1 changed somethingggggggggggggg");
 
 	}
 
