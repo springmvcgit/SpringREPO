@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+
+<!-- configure handler mapping -->
+<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+ <property name="mappings">
+  <props>
+	<prop key="welcome.htm">pvc1</prop>
+	<prop key="home.htm">urlFVC</prop>
+	<prop key="about.htm">urlFVC</prop>
+	<prop key="contact.htm">urlFVC</prop>
+	<prop key="help.htm">urlFVC</prop>
+	<prop key="getAllStudent.htm">getAll</prop>
+	<prop key="updateRecord.htm">update</prop>
+	<prop key="delete.htm">delete</prop>
+	<prop key="addStudent.htm">addStudent</prop>
+	
+  </props>
+  </property>
+</bean>
+
+<!-- conf controller -->
+<bean id="pvc1" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+<property name="viewName" value="home"/>
+</bean>
+
+<bean id="urlFVC" class="org.springframework.web.servlet.mvc.UrlFilenameViewController">
+</bean>
+
+<bean id="getAll" class="com.nt.controller.GetAllStudent">
+<constructor-arg ref="service"></constructor-arg>
+</bean>
+
+<bean id="delete" class="com.nt.controller.DeleteStudent">
+<constructor-arg ref="service"/>
+</bean>
+
+<bean id="addStudent" class="com.nt.controller.AddStudents">
+<property name="commandClass" value="com.nt.command.StudentInsertCommand"/>
+<property name="commandName" value="stuCmd"/>
+<property name="formView" value="addStudents"/>
+<property name="sessionForm" value="true"/>
+<constructor-arg ref="service"/>
+
+</bean>
+
+<bean id="update" class="com.nt.controller.UpdateStudent">
+<property name="formView" value="edit"/>
+<property name="commandClass" value="com.nt.command.StudentUpdateCommand"/>
+<property name="commandName" value="stuCmd"/>
+<property name="sessionForm" value="true"/>
+<constructor-arg ref="service"></constructor-arg>
+</bean>
+
+
+<!-- conf view resolver -->
+<bean  class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+<property name="prefix" value="/WEB-INF/pages/"/>
+<property name="suffix" value=".jsp"></property>
+</bean>
+
+
+</beans>

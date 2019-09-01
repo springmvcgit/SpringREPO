@@ -1,0 +1,17 @@
+
+SQL> desc student;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- -------------------
+
+ ID                                        NOT NULL NUMBER(5)
+ SNAME                                              VARCHAR2(20)
+ SADDRESS                                           VARCHAR2(20)
+ COURSE                                             VARCHAR2(20)
+ MOBILE                                             NUMBER(20)
+ FEES                                               NUMBER(20)
+
+
+
+SQL> create sequence stu_seq start with 100 increment by 1;
+
+Sequence created.
