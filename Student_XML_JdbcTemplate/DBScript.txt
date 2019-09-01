@@ -1,3 +1,12 @@
+**past the given things into context.xml on tomcat server folder:
+
+<context>
+
+<Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" maxIdle="4" maxTotal="10" maxWaitMillis="-1" name="DsJndi" password="tiger" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:xe" username="scott"/>
+
+</context>
+
+
 
 SQL> desc student;
  Name                                      Null?    Type
